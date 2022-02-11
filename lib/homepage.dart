@@ -17,7 +17,35 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(
             "Somtin Somtin",
           )),
-      body: Center(),
+      body: ListView.builder(
+          itemCount: 1,
+          itemBuilder: (BuildContext context, int position) {
+            return _balanceView();
+          }),
+    );
+  }
+
+  Widget _balanceView() {
+    return Row(
+      children: [
+        Expanded(
+            child: Container(
+          padding: EdgeInsets.only(left: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Total Gift Card value"),
+              Text("GHS 1,000"),
+              Text("Buy Gift Voucher")
+            ],
+          ),
+        )),
+        Icon(
+          Icons.image,
+          size: 80,
+        )
+      ],
     );
   }
 }
