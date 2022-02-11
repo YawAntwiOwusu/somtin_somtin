@@ -18,10 +18,24 @@ class _MyHomePageState extends State<MyHomePage> {
             "Somtin Somtin",
           )),
       body: ListView.builder(
-          itemCount: 1,
+          itemCount: 4,
           itemBuilder: (BuildContext context, int position) {
+            Widget content = Container();
+            if (position == 0) {
+              content = _balanceView();
+            } else {
+              content = _discountView();
+            }
             return _balanceView();
           }),
+    );
+  }
+
+  Widget _discountView() {
+    return Container(
+      child: ListTile(
+        title: Text("Hello"),
+      ),
     );
   }
 
@@ -36,8 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Total Gift Card value"),
-              Text("GHS 1,000"),
-              Text("Buy Gift Voucher")
+              Text(
+                "GHS 1,000",
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "Buy Gift Voucher",
+                style: TextStyle(color: Colors.pink),
+              )
             ],
           ),
         )),
